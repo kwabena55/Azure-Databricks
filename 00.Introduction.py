@@ -25,17 +25,13 @@ df1.show()
 
 # COMMAND ----------
 
-df1.createOrReplaceTempView('SQL')
+import pandas as pd
+
+df1 = pd.read_csv("/dbfs/FileStore/shared_uploads/peniel551@outlook.com/appl_stock.csv")
 
 # COMMAND ----------
 
-
-spark.sql ("Select * from sql").show()
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC select * from df1
+df1.describe().plot(kind="bar")
 
 # COMMAND ----------
 
