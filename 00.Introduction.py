@@ -43,3 +43,8 @@ df2.head()
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select current_date
+
+# COMMAND ----------
+
