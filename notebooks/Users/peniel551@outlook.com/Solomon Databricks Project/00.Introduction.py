@@ -13,7 +13,7 @@ from pyspark.sql.types import StringType,StructType
 
 # COMMAND ----------
 
-
+from pyspark.sql import SparkSession
 
 # COMMAND ----------
 
