@@ -35,3 +35,11 @@ df1.describe().plot(kind="bar")
 
 # COMMAND ----------
 
+df2 = pd.read_csv("/dbfs/FileStore/shared_uploads/peniel551@outlook.com/airports.csv")
+
+# COMMAND ----------
+
+df2.head()
+
+# COMMAND ----------
+
