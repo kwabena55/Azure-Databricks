@@ -84,7 +84,21 @@ spark.sql("create table pythondb.custtable\
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 spark.sql("select * from scaladb.custtable").show()
+
+# COMMAND ----------
+
+spark.sql("create table scaladb2.custtable ( name string, gender string, age integer)")
+
+# COMMAND ----------
+
+spark.sql("create table scaladb2.custtable2 ( name string,\
+          gender string,\
+          age integer)")
 
 # COMMAND ----------
 
