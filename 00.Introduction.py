@@ -48,3 +48,7 @@ df2.head()
 
 # COMMAND ----------
 
+# MAGIC %fs ls /databricks-datasets/structured-streaming/events/
+
+# COMMAND ----------
+
