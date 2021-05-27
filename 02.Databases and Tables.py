@@ -54,4 +54,17 @@ spark.sql("describe database scaladb3").show()
 
 # COMMAND ----------
 
-spark.slq
+# MAGIC %python
+# MAGIC spark.sql("create database pythondb2 comment 'this is a python database' ")
+
+# COMMAND ----------
+
+# Drop Databases
+spark.sql("drop database pythondb2")
+
+# COMMAND ----------
+
+display(spark.sql("describe database pythondb"))
+
+# COMMAND ----------
+
