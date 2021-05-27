@@ -68,3 +68,23 @@ display(spark.sql("describe database pythondb"))
 
 # COMMAND ----------
 
+# Create Tables
+
+# COMMAND ----------
+
+spark.sql("create table pythondb.custtable\
+         (cid string,\
+         cname string,\
+         clocation string)")
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("create table scaladb.custtable(cid string, cname string,clocation string)")
+
+# COMMAND ----------
+
+spark.sql("select * from scaladb.custtable").show()
+
+# COMMAND ----------
+
