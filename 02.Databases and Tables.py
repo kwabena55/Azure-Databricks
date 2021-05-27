@@ -112,3 +112,12 @@ spark.sql("select * from scaladb2.custtable").show()
 
 # COMMAND ----------
 
+spark.sql("describe table scaladb2.custtable").show()
+
+# COMMAND ----------
+
+spark.sql("describe database scaladb2").show()
+
+# COMMAND ----------
+
+  
