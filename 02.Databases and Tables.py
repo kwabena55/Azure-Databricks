@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC ## Creating Databases in SQL
+
+# COMMAND ----------
+
 # MAGIC %sql
 # MAGIC -- Create database using SQL
 # MAGIC create database sqldb
