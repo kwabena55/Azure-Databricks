@@ -102,3 +102,13 @@ spark.sql("create table scaladb2.custtable2 ( name string,\
 
 # COMMAND ----------
 
+# Insert records in Table
+spark.sql("insert into scaladb2.custtable values ('solomon','male',1),\
+          ('Louisa','female',2)")
+
+# COMMAND ----------
+
+spark.sql("select * from scaladb2.custtable").show()
+
+# COMMAND ----------
+
