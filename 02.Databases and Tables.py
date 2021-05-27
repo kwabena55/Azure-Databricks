@@ -35,3 +35,13 @@ describe database sqldb
 
 # COMMAND ----------
 
+# MAGIC %scala
+# MAGIC spark.sql("create database scaladb2 comment 'This is me' ")
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("describe database scaladb2")
+
+# COMMAND ----------
+
