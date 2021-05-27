@@ -120,4 +120,3 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
-  
