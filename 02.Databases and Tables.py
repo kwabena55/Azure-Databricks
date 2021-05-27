@@ -45,3 +45,13 @@ describe database sqldb
 
 # COMMAND ----------
 
+# With Comments
+spark.sql("create database scaladb3 comment 'Database with comment'")
+
+# COMMAND ----------
+
+spark.sql("describe database scaladb3").show()
+
+# COMMAND ----------
+
+spark.slq
