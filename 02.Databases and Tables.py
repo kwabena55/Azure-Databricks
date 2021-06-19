@@ -69,7 +69,8 @@ spark.sql("drop database pythondb2")
 
 # COMMAND ----------
 
-display(spark.sql("describe database pythondb"))
+# MAGIC %python
+# MAGIC spark.sql("desc database pythondb").show()
 
 # COMMAND ----------
 
@@ -123,6 +124,15 @@ spark.sql("describe database scaladb2").show()
 
 # MAGIC %scala
 # MAGIC spark.sql("select * from scaladb2.custtable").show()
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("describe table scaladb2.custtable")
+
+# COMMAND ----------
+
+  spark.sql("describe database pythondb2")
 
 # COMMAND ----------
 
