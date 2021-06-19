@@ -146,3 +146,14 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Describe Table
+# MAGIC * It will show all info about the table
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("desc table pythondb2.permanent_table_name_pat ").show(truncate=false)
+
+# COMMAND ----------
+
