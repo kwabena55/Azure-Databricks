@@ -1,7 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC 
-# MAGIC ## Overview
+# MAGIC ## Overview -- JDBC
 # MAGIC 
 # MAGIC This notebook shows you how to load data from JDBC databases using Spark SQL.
 # MAGIC 
