@@ -142,3 +142,47 @@ dbutils.notebook.run("/My  Notebooks/07.SQL Notebook  exit",60000) # m60000 mean
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Install Libraries
+
+# COMMAND ----------
+
+dbutils.library.installPyPI("pandas")
+
+# COMMAND ----------
+
+dbutils.library.installPyPI("tensorflow")
+
+# COMMAND ----------
+
+
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Run and Check some Secrets
+
+# COMMAND ----------
+
+dbutils.secrets.help()
+
+# COMMAND ----------
+
+dbutils.secrets.listScopes()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Current Notebook Path
+
+# COMMAND ----------
+
+dbutils.notebook.help()
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC dbutils.notebook.getContext.notebookPath
+
+# COMMAND ----------
+
