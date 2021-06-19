@@ -89,10 +89,6 @@ spark.sql("create table pythondb.custtable\
 
 # COMMAND ----------
 
-
-
-# COMMAND ----------
-
 spark.sql("select * from scaladb.custtable").show()
 
 # COMMAND ----------
@@ -122,6 +118,11 @@ spark.sql("describe table scaladb2.custtable").show()
 # COMMAND ----------
 
 spark.sql("describe database scaladb2").show()
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("select * from scaladb2.custtable").show()
 
 # COMMAND ----------
 
