@@ -157,3 +157,8 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
+# MAGIC %scala
+# MAGIC spark.sql("select * from pythondb2.permanent_table_name_pat").show()
+
+# COMMAND ----------
+
