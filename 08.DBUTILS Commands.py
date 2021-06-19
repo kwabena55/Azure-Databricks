@@ -66,11 +66,29 @@ dbutils.fs.put("/FileStore/tables/demo2/Ansah.txt","welcome to Ansah Online trai
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # Read Data stored in Files
+# MAGIC # Read FileContent/Data stored in Files
 
 # COMMAND ----------
 
 dbutils.fs.head("/FileStore/tables/demo2/Ansah.txt")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Move Files
+
+# COMMAND ----------
+
+dbutils.fs.mv("FileStore/tables/demo1/solomon.txt","FileStore/tables/demo2")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Copy Files
+
+# COMMAND ----------
+
+dbutils.fs.cp("FileStore/tables/demo2/solomon.txt","FileStore/tables/demo1")
 
 # COMMAND ----------
 
