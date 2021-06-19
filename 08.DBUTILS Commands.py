@@ -92,3 +92,53 @@ dbutils.fs.cp("FileStore/tables/demo2/solomon.txt","FileStore/tables/demo1")
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Mouting and Unmounting
+
+# COMMAND ----------
+
+#refresh mounts
+dbutils.fs.refreshMounts()
+
+# COMMAND ----------
+
+#mounts
+dbutils.fs.mounts()
+
+# COMMAND ----------
+
+a=10
+
+# COMMAND ----------
+
+print(a)
+
+# COMMAND ----------
+
+# MAGIC %md 
+# MAGIC # Exiting Notebook
+
+# COMMAND ----------
+
+dbutils.notebook.exit("testing")
+
+# COMMAND ----------
+
+print(a)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Run a notebook from another notebook
+
+# COMMAND ----------
+
+dbutils.notebook.run("/My  Notebooks/07.SQL Notebook  exit",60000) # m60000 means the time to run the notebook . Didnt run becuase of the free subscription
+
+# COMMAND ----------
+
+#use the % run to run the notebook. On the fly it will call all items in that notebook 
+%run /MyNotebooks/02.DatabasesandTables_1
+
+# COMMAND ----------
+
