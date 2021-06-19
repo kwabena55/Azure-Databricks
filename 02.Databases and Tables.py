@@ -136,3 +136,13 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Show all Temporary and Permanent Tables Under a Database
+
+# COMMAND ----------
+
+# MAGIC %scala
+# MAGIC spark.sql("show tables from pythondb2").show()
+
+# COMMAND ----------
+
