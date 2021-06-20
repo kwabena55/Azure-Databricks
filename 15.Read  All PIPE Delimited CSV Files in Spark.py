@@ -1,4 +1,9 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Read Single File
+
+# COMMAND ----------
+
 # Read Files in Databricks
 df=spark.read.csv("/FileStore/tables/multicsvfile/employeesus.csv", header=True, inferSchema=True,sep="|")
 
@@ -28,9 +33,26 @@ schema_type= StructType([ StructField("FirstName",StringType(),True),
 
 # COMMAND ----------
 
+df.describe().show()
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC # Read Multiple Files in the Source Path
 
 # COMMAND ----------
 
-sourcepath_multiple= "/FileStore/tables/multicsvfile/*"
+sourcepath_multiple= "/FileStore/tables/multicsvfile/"
+df1=spark.read.csv(sourcepath_multiple, header=True, schema=schema_type,sep=",")
+
+
+# COMMAND ----------
+
+df1.show()
+
+# COMMAND ----------
+
+df1.describe().show()  # Read alll Files
+
+# COMMAND ----------
+
