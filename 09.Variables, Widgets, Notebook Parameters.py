@@ -22,6 +22,7 @@ dbutils.widgets.help()
 
 # COMMAND ----------
 
+# in dropdown the default value must be in the choices list
 dbutils.widgets.dropdown("subjectttt","payments", ["subject","payments","sales","orders","transactions"])
 
 # COMMAND ----------
