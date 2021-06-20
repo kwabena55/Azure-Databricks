@@ -37,3 +37,8 @@ dbutils.widgets.combobox("subjectcombo","payments", ["subject","sales","orders",
 
 # COMMAND ----------
 
+# this means grab the active selection in the "subjectttt widget"
+dbutils.widgets.get("subjectttt")
+
+# COMMAND ----------
+
