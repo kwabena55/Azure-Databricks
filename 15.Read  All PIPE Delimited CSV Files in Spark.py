@@ -4,6 +4,12 @@
 
 # COMMAND ----------
 
+# Read Double Pipe Files
+# 
+df=spark.read.csv("/FileStore/tables/multicsvfile/employeesus.csv", header=True, inferSchema=True,sep="||")
+
+# COMMAND ----------
+
 # Read Files in Databricks
 df=spark.read.csv("/FileStore/tables/multicsvfile/employeesus.csv", header=True, inferSchema=True,sep="|")
 
