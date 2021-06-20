@@ -32,6 +32,11 @@ dbutils.widgets.get("subject")
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Combobox
+
+# COMMAND ----------
+
 # In combo you can choose not to add the default value to you  the list of items in your dropdown
 dbutils.widgets.combobox("subjectcombo","payments", ["subject","sales","orders","transactions"])
 
@@ -39,6 +44,20 @@ dbutils.widgets.combobox("subjectcombo","payments", ["subject","sales","orders",
 
 # this means grab the active selection in the "subjectttt widget"
 dbutils.widgets.get("subjectttt")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Multiselect
+
+# COMMAND ----------
+
+dbutils.widgets.multiselect("multiselect", "select",["select", "one","sales","orders"])
+
+# COMMAND ----------
+
+# grabbinb text from multislect
+dbutils.widgets.get("multiselect")
 
 # COMMAND ----------
 
