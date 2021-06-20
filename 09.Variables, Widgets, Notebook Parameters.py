@@ -61,3 +61,21 @@ dbutils.widgets.get("multiselect")
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Remove all Widgets
+
+# COMMAND ----------
+
+dbutils.widgets.removeAll()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Remove specific widgets
+
+# COMMAND ----------
+
+dbutils.widgets.remove("sourcepath")
+
+# COMMAND ----------
+
