@@ -47,3 +47,40 @@ df.printSchema()
 
 # COMMAND ----------
 
+
+# spark=SparkSession.builder.appName("Read CSV Files").getOrCreate Use this when you wowrking local Apache spark
+from pyspark.sql.types import *
+from pyspark.sql.functions import *
+
+# COMMAND ----------
+
+schema_type= StructType([ StructField("FirstName",StringType(),True),
+                          StructField("Gender",StringType(),True),
+                          StructField("StartDate",DateType(),True),
+                          StructField("Salary",IntegerType(),True)]
+)
+
+# COMMAND ----------
+
+# Read Files in Databricks
+df=spark.read.csv("/FileStore/tables/multicsvfile/employeesus.csv", header=True, inferSchema=True,sep=",",schema=schema_type)
+
+# COMMAND ----------
+
+df.printSchema()
+
+# COMMAND ----------
+
+df.columns
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Select Specific Column Names
+
+# COMMAND ----------
+
+ df.select(["FirstName","Gender"]).show()
+
+# COMMAND ----------
+
