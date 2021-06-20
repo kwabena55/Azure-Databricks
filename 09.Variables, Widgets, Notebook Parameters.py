@@ -18,16 +18,21 @@ sourcelocation
 
 # COMMAND ----------
 
-dbutils.widgets.dropdown("subject_dd","payments", ["sourcepath","payments,","sales","orders","transactions"])
+dbutils.widgets.help()
 
 # COMMAND ----------
 
-# Default value must be in choice list, if not use error handling methods
-try:
-  dbutils.widgets.dropdown("subject_dd","payments", ["sourcepath","payments,","sales","orders","transactions"])
-  except:
-    print("exception is raised")
-  
+dbutils.widgets.dropdown("subjectttt","payments", ["subject","payments","sales","orders","transactions"])
+
+# COMMAND ----------
+
+# Subject is the name passed at the side of the Widget
+dbutils.widgets.get("subject")
+
+# COMMAND ----------
+
+# In combo you can choose not to add the default value to you  the list of items in your dropdown
+dbutils.widgets.combobox("subjectcombo","payments", ["subject","sales","orders","transactions"])
 
 # COMMAND ----------
 
