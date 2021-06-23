@@ -76,3 +76,30 @@ spark.read.format("parquet").load("/FileStore/tables/Parquet_Output/part-00000-t
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Partition By
+
+# COMMAND ----------
+
+pardf.write.mode("append").partitionBy("DateID").format("csv").save("FileStore/tables/Parquet/transpart.csv")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Read Partition Data
+
+# COMMAND ----------
+
+spark.read.csv("/FileStore/tables/Parquet/transpart.csv/DateID=20131224/part-00000-tid-9183230976460932175-bdf97cc0-1554-410a-abdd-2d4fe43d32b8-25-8.c000.csv",header=True).show()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Write to Database
+
+# COMMAND ----------
+
+pardf.write.format("parquet").saveAsTable("scaladb2.ansahs")
+
+# COMMAND ----------
+
