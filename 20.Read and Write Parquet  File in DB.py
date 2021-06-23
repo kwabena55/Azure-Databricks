@@ -46,3 +46,11 @@ pardf2.collect()[5][0]
 
 # COMMAND ----------
 
+pardf2.dtypes
+
+# COMMAND ----------
+
+pardf2.printSchema() # PrintSchema is more Powerful
+
+# COMMAND ----------
+
