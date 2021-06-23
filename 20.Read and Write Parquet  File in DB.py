@@ -17,6 +17,10 @@ display(pardf)
 
 # COMMAND ----------
 
+pardf.count()
+
+# COMMAND ----------
+
 pardf.describe().show()
 
 # COMMAND ----------
@@ -26,6 +30,19 @@ pardf.createOrReplaceTempView("sql")
 # COMMAND ----------
 
 spark.sql("select count(*) from sql").show()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # ALternative Syntax
+
+# COMMAND ----------
+
+pardf2=spark.read.format("parquet").load("/FileStore/tables/Parquet/NYCTripSmall.parquet")
+
+# COMMAND ----------
+
+pardf2.collect()[5][0]
 
 # COMMAND ----------
 
