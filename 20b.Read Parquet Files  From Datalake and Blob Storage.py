@@ -95,13 +95,9 @@ display(data)
 
 // COMMAND ----------
 
-
-
-// COMMAND ----------
-
-val StorageAccountName = "storagedatalake55"
+val StorageAccountName = "adls55"
 val datalakeContainer = "datalakecontainer"
-val blobAccessKey2 = dbutils.secrets.get(scope ="myadls", key= "accesskey2")
+val blobAccessKey2 = dbutils.secrets.get(scope ="myblobakv", key= "accesskeyakv")
 
 // COMMAND ----------
 
@@ -111,4 +107,4 @@ spark.conf.set( "fs.azure.account.key." + StorageAccountName + ".dfs.core.window
 // COMMAND ----------
 
 filename2="NYCTripSmall.parquet"
-sourcepath= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/parquetdata/" +filename2)
+sourcepath= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" +filename2)
