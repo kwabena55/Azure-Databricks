@@ -37,8 +37,54 @@
 
 // COMMAND ----------
 
-// MAGIC %python
-// MAGIC blobAccesskey = dbutils.secrets.get(scope ="myblob", key= "accesskey")
+# %python
+blobAccesskey = dbutils.secrets.get(scope ="myblob", key= "accesskey")
 
 // COMMAND ----------
 
+
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC # Configuration to Access Storage Account
+
+// COMMAND ----------
+
+// val blobStorage = "<blob-storage-account-name>.blob.core.windows.net"
+// val blobContainer = "<blob-container-name>"
+// val blobAccessKey =  "<access-key>"
+
+// COMMAND ----------
+
+val blobStorage = "storageblob55.blob.core.windows.net"
+val blobContainer = "blobcontainer"
+val blobAccessKey = dbutils.secrets.get(scope ="myblob", key= "accesskey")
+
+// COMMAND ----------
+
+spark.conf.set( "fs.azure.account.key." + blobStorage + ".dfs.core.windows.net",blobAccessKey)
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC # Read Data from Storage Account
+
+// COMMAND ----------
+
+val filename = "NYCTripSmall.parquet"
+val data=spark.read.parquet("wasbs://" + blobContainer + "@" + blobStorage + ".blob.cocre.windows.net/" + filename)
+
+// COMMAND ----------
+
+val filename = "employees.csv"
+val data=spark.read.scv("wasbs://" + blobContainer + "@" + blobStorage + ".blob.cocre.windows.net/" + filename)
+
+// COMMAND ----------
+
+display(data)
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC #Read Data from Datalake
