@@ -106,5 +106,8 @@ spark.conf.set( "fs.azure.account.key." + StorageAccountName + ".dfs.core.window
 
 // COMMAND ----------
 
-filename2="NYCTripSmall.parquet"
-sourcepath= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" +filename2)
+val filename2="NYCTripSmall.parquet"
+val data= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" + filename2)
+
+// COMMAND ----------
+
