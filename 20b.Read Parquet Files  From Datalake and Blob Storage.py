@@ -47,7 +47,7 @@ blobAccesskey = dbutils.secrets.get(scope ="myblob", key= "accesskey")
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC # Configuration to Access Storage Account
+// MAGIC # Configuration to Access Storage Account ( Azure Blob)
 
 // COMMAND ----------
 
@@ -91,23 +91,23 @@ display(data)
 // COMMAND ----------
 
 // MAGIC %md
-// MAGIC #Read Data from Datalake
+// MAGIC #Read Data from Datalake( Not  quite Accurate Refer to 20c.)
 
 // COMMAND ----------
 
-val StorageAccountName = "adls55"
-val datalakeContainer = "datalakecontainer"
-val blobAccessKey2 = dbutils.secrets.get(scope ="myblobakv", key= "accesskeyakv")
+// val StorageAccountName = "adls55"
+// val datalakeContainer = "datalakecontainer"
+// val blobAccessKey2 = dbutils.secrets.get(scope ="myblobakv", key= "accesskeyakv")
 
 // COMMAND ----------
 
-spark.conf.set( "fs.azure.account.key." + StorageAccountName + ".dfs.core.windows.net",blobAccessKey2)
+// spark.conf.set( "fs.azure.account.key." + StorageAccountName + ".dfs.core.windows.net",blobAccessKey2)
 
 
 // COMMAND ----------
 
-val filename2="NYCTripSmall.parquet"
-val data= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" + filename2)
+// val filename2="NYCTripSmall.parquet"
+// val data= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" + filename2)
 
 // COMMAND ----------
 
