@@ -30,5 +30,11 @@ dbutils.fs.ls("FileStore/tables/excelinput")
 
 # COMMAND ----------
 
-com.crealytics:spark-excel_2.12:0.13.7
-    /FileStore/tables/excelinput/data__2_.xlsx'
+data=spark.read.format("com.crealytics.spark.excel").option("header",True).load("/FileStore/tables/excelinput/data.xlsx")
+
+# COMMAND ----------
+
+display(data)
+
+# COMMAND ----------
+
