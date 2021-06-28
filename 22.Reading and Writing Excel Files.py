@@ -38,3 +38,20 @@ display(data)
 
 # COMMAND ----------
 
+data.select("country","country_code").show()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Read Specific Excel Sheets
+
+# COMMAND ----------
+
+data=spark.read.format("com.crealytics.spark.excel").option("header",True).option("header",True).option("inferSchema",True).option("dataAddress","'sheet2'!").load("/FileStore/tables/excelinput/data.xlsx")
+
+# COMMAND ----------
+
+display(data)
+
+# COMMAND ----------
+
