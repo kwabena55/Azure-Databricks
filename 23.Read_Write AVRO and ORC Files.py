@@ -73,3 +73,7 @@ dfavro.groupBy("country").sum().show()
 
 # COMMAND ----------
 
+dfavro.write.format("avro").option("header",True).save('dbfs:/FileStore/tables/outpavro/userdatout.avro')
+
+# COMMAND ----------
+
