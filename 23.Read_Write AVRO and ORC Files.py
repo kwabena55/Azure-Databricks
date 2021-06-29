@@ -39,3 +39,37 @@ display(dfavro)
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Write or Save to an Ouput
+
+# COMMAND ----------
+
+dfavro.write.format("orc").option("header",True).save('dbfs:/FileStore/tables/outputorc/userdatout.orc')
+
+# COMMAND ----------
+
+dbutils.fs.ls('dbfs:/FileStore/tables/outputorc/')
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Read Avro Files
+
+# COMMAND ----------
+
+dfavro=spark.read.format("avro").option("header",True).load('dbfs:/FileStore/tables/inputavro/userdata1.avro')
+
+# COMMAND ----------
+
+display(dfavro)
+
+# COMMAND ----------
+
+dfavro.printSchema()
+
+# COMMAND ----------
+
+dfavro.groupBy("country").sum().show()
+
+# COMMAND ----------
+
