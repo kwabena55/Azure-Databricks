@@ -13,22 +13,6 @@
 
 // COMMAND ----------
 
-# %python
-#Specify the source path
-# sourcepath= spark.read.parquet("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>")
-
-// COMMAND ----------
-
-# %python
-# sourcepath="abfss://datalakecontainer@adlstestg55.dfs.core.windows.net/parquetdata/"
-
-// COMMAND ----------
-
-# %python
-# df=spark.read.parquet(sourcepath)
-
-// COMMAND ----------
-
 // MAGIC %md
 // MAGIC # Secret Scope
 // MAGIC * A secret scope and key has been created in Databricks CLI
