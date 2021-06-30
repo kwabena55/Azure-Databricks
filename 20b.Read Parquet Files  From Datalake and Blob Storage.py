@@ -13,22 +13,6 @@
 
 // COMMAND ----------
 
-# %python
-#Specify the source path
-# sourcepath= spark.read.parquet("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>")
-
-// COMMAND ----------
-
-# %python
-# sourcepath="abfss://datalakecontainer@adlstestg55.dfs.core.windows.net/parquetdata/"
-
-// COMMAND ----------
-
-# %python
-# df=spark.read.parquet(sourcepath)
-
-// COMMAND ----------
-
 // MAGIC %md
 // MAGIC # Secret Scope
 // MAGIC * A secret scope and key has been created in Databricks CLI
@@ -87,27 +71,6 @@ val data=spark.read.option("header","true").csv("wasbs://" + blobContainer + "@"
 // COMMAND ----------
 
 display(data)
-
-// COMMAND ----------
-
-// MAGIC %md
-// MAGIC #Read Data from Datalake( Not  quite Accurate Refer to 20c.)
-
-// COMMAND ----------
-
-// val StorageAccountName = "adls55"
-// val datalakeContainer = "datalakecontainer"
-// val blobAccessKey2 = dbutils.secrets.get(scope ="myblobakv", key= "accesskeyakv")
-
-// COMMAND ----------
-
-// spark.conf.set( "fs.azure.account.key." + StorageAccountName + ".dfs.core.windows.net",blobAccessKey2)
-
-
-// COMMAND ----------
-
-// val filename2="NYCTripSmall.parquet"
-// val data= spark.read.parquet("abfss://" + datalakeContainer + "@" + StorageAccountName + ".dfs.core.windows.net/" + filename2)
 
 // COMMAND ----------
 
