@@ -182,13 +182,35 @@ spark.sql("describe database scaladb2").show()
 # MAGIC 
 # MAGIC %sql
 # MAGIC create table if not exists customertestt
-# MAGIC using csv  # remember you can use text, text etc here 
+# MAGIC using csv  //remember you can use text, text etc here 
 # MAGIC options(path 'dbfs:/FileStore/tables/customers.csv',header=true)
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC select * from customertestt
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC create table if not exists scaladb2.customertestt
+# MAGIC using csv 
+# MAGIC options(path 'dbfs:/FileStore/tables/customers.csv',header=true)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC describe scaladb2.customertestt
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC describe database scaladb2
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC describe table scaladb2.customertestt
 
 # COMMAND ----------
 
