@@ -21,14 +21,20 @@ logging.critical('This is a critical message')
 
 # COMMAND ----------
 
-from datetime import datetime
 import pytz
-current_dt=datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y%m%d_%H%M%S')
-directory="/tmp/"
+pytz.all_timezones
 
 # COMMAND ----------
 
-display(current_dt)
+from datetime import datetime
+import pytz
+current_dt=datetime.now(pytz.timezone('America/Edmonton')).strftime('%Y%m%d_%H%M%S')
+directory="/tmp/"
+logfilename="solomon"+current_dt+".log"
+finalpath=directory+logfilename
+print(finalpath)
+
+
 
 # COMMAND ----------
 
