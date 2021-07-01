@@ -52,3 +52,27 @@ logger.error('error message')
 
 # COMMAND ----------
 
+# MAGIC %sh
+# MAGIC ls /tmp
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Mount and Store Log files in DBFS
+
+# COMMAND ----------
+
+partitions=datetime.now(pytz.timezone('America/Edmonton')).strftime('%Y%m%d_%H%M%S')
+print(partitions)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Move log files to DBFS
+
+# COMMAND ----------
+
+dbutils.fs.mv("file:"+finalpath,"dbfs:/mnt/solomon/log/"+partitions+logfilename)
+
+# COMMAND ----------
+
