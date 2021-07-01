@@ -162,3 +162,15 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Create Tables in SQL
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC create table if not exists solomondefault
+# MAGIC using text
+# MAGIC options(path '/mnt/solomon/*/*/*/',header=true)
+
+# COMMAND ----------
+
