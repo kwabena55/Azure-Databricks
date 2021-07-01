@@ -174,3 +174,21 @@ spark.sql("describe database scaladb2").show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Copy a CSV file or any File to a sql table 
+
+# COMMAND ----------
+
+# MAGIC 
+# MAGIC %sql
+# MAGIC create table if not exists customertestt
+# MAGIC using csv  # remember you can use text, text etc here 
+# MAGIC options(path 'dbfs:/FileStore/tables/customers.csv',header=true)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from customertestt
+
+# COMMAND ----------
+
