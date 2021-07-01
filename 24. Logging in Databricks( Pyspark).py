@@ -76,3 +76,24 @@ dbutils.fs.mv("file:"+finalpath,"dbfs:/mnt/solomon/log/"+partitions+logfilename)
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Create Tables in SQL
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC create table if not exists solomondefault
+# MAGIC using text
+# MAGIC options(path 'dbfs:/mnt/solomon/log/',header=true)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from solomondefault
+
+# COMMAND ----------
+
+# You can mount and write to Blob Storage
+
+# COMMAND ----------
+
