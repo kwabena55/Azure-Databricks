@@ -97,3 +97,15 @@ dbutils.fs.mv("file:"+finalpath,"dbfs:/mnt/solomon/log/"+partitions+logfilename)
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC create table if not exists customertest
+# MAGIC using text
+# MAGIC options(path 'dbfs:/FileStore/tables/customers.csv',header=true)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from customertest
+
+# COMMAND ----------
+
