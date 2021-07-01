@@ -38,4 +38,17 @@ print(finalpath)
 
 # COMMAND ----------
 
-dir
+import logging
+logger=logging.getLogger("demologger")
+logger.setLevel(logging.INFO)
+FileHandler=logging.FileHandler(finalpath,mode='a')
+formatter=logging.Formatter('%(asctime)s - %(name)s -%(levelname)s : %(message)s',datefmt='%m/%d/%Y %I:%M:%S %p')
+FileHandler.setFormatter(formatter)
+logger.addHandler(FileHandler)
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+
+# COMMAND ----------
+
