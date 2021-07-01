@@ -16,7 +16,20 @@ logging.critical('This is a critical message')
 
 # COMMAND ----------
 
-
+# MAGIC %md
+# MAGIC # Creating a Path to store Logs
 
 # COMMAND ----------
 
+from datetime import datetime
+import pytz
+current_dt=datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y%m%d_%H%M%S')
+directory="/tmp/"
+
+# COMMAND ----------
+
+display(current_dt)
+
+# COMMAND ----------
+
+dir
