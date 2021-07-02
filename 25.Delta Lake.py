@@ -51,3 +51,14 @@ display(df1)
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Facts about Delta and Non Delta tables
+# MAGIC * It is observed when we dont write data as delta we can always overwrite the data in the destination folder
+# MAGIC * It will never throw an error
+
+# COMMAND ----------
+
+df1.write.mode("overwrite").format("parquet").save("dbfs:/FileStore/tables/parquetdata/")
+
+# COMMAND ----------
+
