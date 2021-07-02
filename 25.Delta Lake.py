@@ -43,3 +43,11 @@ display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata/"))
 
 # COMMAND ----------
 
+df1=spark.createDataFrame([(1,"solomonn","Edmonton","AB"),(2,"louisa","calgary","AB"),(3,"Elikem","Chapelle","ED")],["cid","cname","clocation","Province"])
+
+# COMMAND ----------
+
+display(df1)
+
+# COMMAND ----------
+
