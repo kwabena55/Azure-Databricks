@@ -53,12 +53,19 @@ display(df1)
 
 # MAGIC %md
 # MAGIC # Facts about Delta and Non Delta tables
-# MAGIC * It is observed when we dont write data as delta we can always overwrite the data in the destination folder
+# MAGIC * It is observed when we dont write data as delta we can always overwrite the data in the destination folder( able to write a 4 column data (df1) to replace a 3 column data(df))
 # MAGIC * It will never throw an error
+# MAGIC * In the code below we were able to write df1 to the parquet data folder with no error
+# MAGIC * Its also evident that when we tried the same thing with the delta it didnt permit us
+# MAGIC * It throws an error **A schema mismatch detected when writing to the Delta table**
 
 # COMMAND ----------
 
 df1.write.mode("overwrite").format("parquet").save("dbfs:/FileStore/tables/parquetdata/")
+
+# COMMAND ----------
+
+df1.write.mode("overwrite").format("delta").save("dbfs:/FileStore/tables/deltadata/")
 
 # COMMAND ----------
 
