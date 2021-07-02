@@ -25,3 +25,21 @@ dbutils.fs.ls("dbfs:/FileStore/tables/parquetdata/")
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Write Data as Delta to a Path
+
+# COMMAND ----------
+
+df.write.format("delta").save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Read Delta Data
+
+# COMMAND ----------
+
+display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata/"))
+
+# COMMAND ----------
+
