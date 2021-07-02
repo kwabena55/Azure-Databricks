@@ -65,7 +65,28 @@ df1.write.mode("overwrite").format("parquet").save("dbfs:/FileStore/tables/parqu
 
 # COMMAND ----------
 
+df1.write.mode("append").format("parquet").save("dbfs:/FileStore/tables/parquetdata/")
+
+# COMMAND ----------
+
+dbutils.fs.ls("dbfs:/FileStore/tables/parquetdata/")
+
+# COMMAND ----------
+
 df1.write.mode("overwrite").format("delta").save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # USe the Merge Schema if you want to append data with different schemma for Delta tables
+
+# COMMAND ----------
+
+df1.write.mode("overwrite").format("delta").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata"))
 
 # COMMAND ----------
 
