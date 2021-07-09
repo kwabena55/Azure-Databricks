@@ -98,3 +98,11 @@ display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata"))
 
 # COMMAND ----------
 
+df.write.mode("append").format("delta").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata"))
+
+# COMMAND ----------
+
