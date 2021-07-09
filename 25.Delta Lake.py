@@ -17,6 +17,10 @@ display(df)
 
 # COMMAND ----------
 
+dbutils.fs.rm("dbfs:/FileStore/tables/parquetdata/",True)
+
+# COMMAND ----------
+
 df.write.format("parquet").save("dbfs:/FileStore/tables/parquetdata/")
 
 # COMMAND ----------
