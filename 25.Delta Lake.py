@@ -34,6 +34,10 @@ dbutils.fs.ls("dbfs:/FileStore/tables/parquetdata/")
 
 # COMMAND ----------
 
+dbutils.fs.rm("dbfs:/FileStore/tables/deltadata/",True)
+
+# COMMAND ----------
+
 df.write.format("delta").save("dbfs:/FileStore/tables/deltadata/")
 
 # COMMAND ----------
