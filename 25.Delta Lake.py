@@ -194,3 +194,16 @@ dtable.toDF().show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ## Delete multipe conditions
+
+# COMMAND ----------
+
+dtable.delete("Province in ('CY','AB')")
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
