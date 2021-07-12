@@ -416,3 +416,31 @@ dtable2.toDF().show()
 
 # COMMAND ----------
 
+from delta.tables import *
+
+
+
+dtable.alias("source").merge(    # Remember when using Python the source(target) should be a deltable but the updates will be dataframe
+    dtable2.toDF().alias("updates"),
+    "source.cid = updates.cid") \
+  .whenMatchedUpdate(set = { "cname" : "updates.cname" } ) \
+  .whenNotMatchedInsert(values =
+    {
+      "cid": "updates.cid",
+      "cname": "updates.cname",
+      "clocation": "updates.clocation"
+    }
+  ) \
+  .execute()
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source
+
+# COMMAND ----------
+
+dtable.toDF().show(truncate=False)
+
+# COMMAND ----------
+
