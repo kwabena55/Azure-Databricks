@@ -444,4 +444,36 @@ dtable.toDF().show(truncate=False)
 
 # COMMAND ----------
 
-ted
+dtable.vacuum() # By default this store last 7 days history and txn logs
+
+# COMMAND ----------
+
+dtable.vacuum(200)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Restore Delta Table to A Previous Version
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC RESTORE TABLE source TO VERSION AS OF 0
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC RESTORE TABLE source TO VERSION AS OF 3
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source
+
+# COMMAND ----------
+
