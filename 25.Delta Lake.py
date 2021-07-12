@@ -106,3 +106,13 @@ display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata"))
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Make a Path a DeltaPath
+
+# COMMAND ----------
+
+from delta.tables import DeltaTable
+dtable=DeltaTable.forPath(spark,"FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
