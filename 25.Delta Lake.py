@@ -124,3 +124,8 @@ dtable.show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ## Convert to DF and Read
+
+# COMMAND ----------
+
