@@ -307,3 +307,112 @@ dtable2.toDF().show()
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC alter table mydeltadata1 rename to source
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source
+
+# COMMAND ----------
+
+# MAGIC %sql 
+# MAGIC select * from updates
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC #Time to Use SCD1 for SQL
+
+# COMMAND ----------
+
+# USe the SCD1 for Source and Updates tables
+
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC MERGE INTO source
+# MAGIC USING updates
+# MAGIC on source.cid=updates.cid
+# MAGIC WHEN MATCHED THEN
+# MAGIC UPDATE SET source.cname=updates.cname
+# MAGIC WHEN NOT MATCHED
+# MAGIC 
+# MAGIC THEN INSERT ( cid,cname,clocation) VALUES (cid,cname,clocation)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC 
+# MAGIC select * from source
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC insert into updates ( cid,cname,clocation)
+# MAGIC values ( 10,"ansaj","eli")
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from updates
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC MERGE INTO source
+# MAGIC USING updates
+# MAGIC on source.cid=updates.cid
+# MAGIC WHEN MATCHED THEN
+# MAGIC UPDATE SET source.cname=updates.cname
+# MAGIC WHEN NOT MATCHED
+# MAGIC 
+# MAGIC THEN INSERT ( cid,cname,clocation) VALUES (cid,cname,clocation)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source 
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from source where cid=10
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Using Python for SCD1
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
+dtable2.toDF().show()
+
+# COMMAND ----------
+
+# So your Delta tables are synced across your dataframe and SQL tables.  This is amazing
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC insert into updates (cid, cname,clocation)
+# MAGIC values(11,'bright','Chicago')
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from updates
+
+# COMMAND ----------
+
+#Prove that the delta tables are synced across
+dtable2.toDF().show()
+
+# COMMAND ----------
+
