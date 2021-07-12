@@ -240,7 +240,7 @@ dtable.toDF().show()
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # Implementing SCD1 in Delta Lake
+# MAGIC # Implementing SCD1 Using SQL in Delta Lake
 
 # COMMAND ----------
 
@@ -257,6 +257,53 @@ dtable.toDF().show()
 # COMMAND ----------
 
 display(updates)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from mydeltadata1
+
+# COMMAND ----------
+
+updates.write.mode("append").format("delta").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata2")
+
+# COMMAND ----------
+
+from delta import DeltaTable
+dtable2=DeltaTable.forPath(spark,"dbfs:/FileStore/tables/deltadata2")
+
+# COMMAND ----------
+
+dtable2.toDF().show()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Create a SQL Table for updates
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC create table if not exists updates
+# MAGIC using delta
+# MAGIC location "dbfs:/FileStore/tables/deltadata2"
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from updates
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC update updates
+# MAGIC set cname="Louisakolo"
+# MAGIC where cid=2
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from updates
 
 # COMMAND ----------
 
