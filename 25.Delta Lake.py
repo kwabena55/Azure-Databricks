@@ -111,8 +111,16 @@ display(spark.read.format("delta").load("dbfs:/FileStore/tables/deltadata"))
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 from delta.tables import DeltaTable
 dtable=DeltaTable.forPath(spark,"FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+dtable.show()
 
 # COMMAND ----------
 
