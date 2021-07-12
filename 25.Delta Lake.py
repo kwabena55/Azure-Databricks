@@ -477,3 +477,19 @@ dtable.vacuum(200)
 
 # COMMAND ----------
 
+DeltaTable.forPath(spark,'dbfs:/FileStore/tables/deltadata2')
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC CREATE TABLE source2 SHALLOW CLONE source
+# MAGIC LOCATION 'dbfs:/FileStore/tables/deltadata' 
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * , input_file_name() from source
+
+# COMMAND ----------
+
+  
