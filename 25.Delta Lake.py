@@ -129,3 +129,21 @@ dtable.show()
 
 # COMMAND ----------
 
+dtable.toDF().show()
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Perform Update Operations for DeltaTables
+
+# COMMAND ----------
+
+# Adding more rows
+df.write.mode("append").format("delta").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
