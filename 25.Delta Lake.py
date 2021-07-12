@@ -172,3 +172,25 @@ dtable.toDF().show()
 
 # COMMAND ----------
 
+# Create another DF
+updates=spark.createDataFrame([(1,"solomon","Edmont"),(2,"louisaa","calgary"),(3,"Elikem","Chapelle")],["cid","cname","clocation"])
+
+# COMMAND ----------
+
+display(updates)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Delete Operations
+
+# COMMAND ----------
+
+dtable.delete("cid=2")
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
