@@ -155,3 +155,20 @@ dtable.toDF().show()
 
 # COMMAND ----------
 
+# Adding more rows
+df.write.mode("append").format("delta").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
+dtable.update("cid=2",{"cname":"'newname'"})
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
