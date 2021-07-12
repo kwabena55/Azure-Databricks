@@ -207,3 +207,56 @@ dtable.toDF().show()
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # Creating Delta Table from a Path Using SQL
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC create table if not exists mydeltadata
+# MAGIC using delta
+# MAGIC location "dbfs:/FileStore/tables/deltadata/"
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select * from mydeltadata
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Rename Delta Table
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC alter table mydeltadata rename to mydeltadata1
+
+# COMMAND ----------
+
+# MAGIC %sql 
+# MAGIC select * from mydeltadata1
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # Implementing SCD1 in Delta Lake
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
+df.write.format("delta").mode("append").option("mergeSchema",True).save("dbfs:/FileStore/tables/deltadata/")
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
+display(updates)
+
+# COMMAND ----------
+
