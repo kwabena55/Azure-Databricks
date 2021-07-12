@@ -147,3 +147,11 @@ dtable.toDF().show()
 
 # COMMAND ----------
 
+dtable.update("Province is null",{"Province":"'CY'"}) 
+
+# COMMAND ----------
+
+dtable.toDF().show()
+
+# COMMAND ----------
+
