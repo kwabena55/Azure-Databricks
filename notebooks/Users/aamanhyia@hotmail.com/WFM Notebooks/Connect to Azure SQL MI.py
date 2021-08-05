@@ -65,3 +65,13 @@ dbutils.widgets.text("database", "", "Database Name")
 
 # COMMAND ----------
 
+# MAGIC %scala
+
+# COMMAND ----------
+
+# MAGIC 
+# MAGIC %scala
+# MAGIC val blobaccesskey=dbutils.secrets.get(scope="myblob",key="accesskey")
+
+# COMMAND ----------
+
